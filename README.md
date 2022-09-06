@@ -4,10 +4,10 @@
 
 The CTHeadDeformation module is an open-sourced library for taking CT and cone-beam CT (CBCT) scans and deforming these scans in a way that simulates realistic head motion. Deforming CT and CBCT scans can be used for:
 
-Studying how realistic patient motion can affect the treatment plan/delivered treatment dose.
-Data augmentation for training robust deep-learning networks.
-Simulating how realistic patient motion can affect the accuracy of CT/CBCT reconstructions.
-Other applications involving realistic patient head motion.
+- Studying how realistic patient motion can affect the treatment plan/delivered treatment dose.
+- Data augmentation for training robust deep-learning networks.
+- Simulating how realistic patient motion can affect the accuracy of CT/CBCT reconstructions.
+- Other applications involving realistic patient head motion.
 
 The image below shows example of how the original CT volume (left) can be realistically deformed to simulate a patient tilting their head up (right). The red lines are added to show how the anatomical landmarks have either moved or remained stationary after the deformation is complete.
 
