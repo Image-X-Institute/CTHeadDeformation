@@ -1,0 +1,9 @@
+{
+	"name":"CHIRP_01",
+	"InputDirectory":"",
+	"StructureFile":"",	
+	"TempDirectory":"examples/TestingTempDir",
+	"OutputDirectory":"examples/TestingGitHubThing",
+	"Structure_Names":"GTV_66",
+	"Structure_Shift":[3.8,2.2,0]
+}

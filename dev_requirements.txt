@@ -1,0 +1,18 @@
+# add packages here that are needed to develop your code
+# feel free to remove ones you don't use
+matplotlib
+numpy
+sphinx
+pytest
+coverage
+interrogate
+coverage-badge
+myst_parser
+build
+twine
+SimpleITK
+scipy
+platipy
+shutil
+glob
+argparse

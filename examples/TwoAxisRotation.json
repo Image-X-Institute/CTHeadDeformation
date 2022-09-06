@@ -1,0 +1,17 @@
+{
+	"name":"CHIRP_01",
+	"InputDirectory":"",
+	"TempDirectory":"examples/TestingTempDir",
+	"OutputDirectory":"examples/TestingGitHubThing",
+	"axes":[[-1,0,0],[0,0,-1]],
+	"angles":[2.5,3.2],	
+	"coordinates_cutoff":[[67,268,254],[58,196,254]],
+	"Oc-C1":[100,229,258],
+	"C1-C2":[93,228,258],
+	"C2-C3":[84,227,257],
+	"C3-C4":[77,227,257],
+	"C4-C5":[69,228,257],
+	"C5-C6":[62,229,257],
+	"C6-C7":[56,230,257],
+	"C7-T1":[48,232,257]
+}
