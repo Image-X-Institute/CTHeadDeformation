@@ -16,7 +16,7 @@ setup(
     description = 'Perform Realistic Head Deformations',
     author = 'Mark Gardner',
     author_email='mark.gardner@sydney.edu.au',
-    url = 'https://github.sydney.edu.au/Image-X/CTHeadDeformation',
+    url = 'https://github.com/ACRF-Image-X-Institute/CTHeadDeformation',
     download_url = '',
     keywords = ['CT', 'deformation', 'head and neck'],
     install_requires=['SimpleITK', 
