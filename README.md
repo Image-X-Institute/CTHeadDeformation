@@ -13,7 +13,7 @@ The image below shows example of how the original CT volume (left) can be realis
 
 ![image](https://media.github.sydney.edu.au/user/5547/files/cf5b651f-fcde-4603-a6d7-d487df5e9904)
 
-Further information can be found in the repo wiki (https://github.sydney.edu.au/Image-X/CTHeadDeformation/wiki) which is updated (semi) regularly. 
+Further information can be found in the repo wiki (https://github.sydney.edu.au/ACRF-Image-X-Institute/CTHeadDeformation/wiki) which is updated (semi) regularly. 
 
 ## Setup/Build/Install
 
