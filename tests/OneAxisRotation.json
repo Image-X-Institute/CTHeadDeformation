@@ -1,8 +1,8 @@
 {
-	"name": "", 
-	"InputDirectory": "", 
-	"TempDirectory":"examples/TestingTempDir",
-	"OutputDirectory":"examples/TestingGitHubThing",
+	"name": "test", 
+	"InputDirectory": "test", 
+	"TempDirectory":"test",
+	"OutputDirectory":"test",
 	"axes": [-1, 0, 0], 
 	"angles": [2.5], 
 	"coordinates_cutoff": [[67, 268, 254], [58, 196, 254]], 
