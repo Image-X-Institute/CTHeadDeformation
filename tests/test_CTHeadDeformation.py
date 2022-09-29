@@ -4,7 +4,7 @@ Created on Mon Sep 19 10:30:33 2022
 
 @author: mgar5380
 """
-
+import os
 from pathlib import Path
 import sys
 import numpy as np
@@ -21,11 +21,13 @@ this_file_loc = Path(__file__)
 sys.path.insert(0, str(this_file_loc.parent.parent))
 # note: insert(0) means that the path is above is the FIRST place that python will look for imports
 # sys.path.append means that the path above is the LAST place
+from DeformHeadCT.DeformVolume import DeformationScript
 from DeformHeadCT.VolumeInfo import VolumeDeformation
 from DeformHeadCT.DataPreparation import (
     MoveDCMFiles,
     GetPointOfRotation
     )
+
 
 def test_VolumeInfoInit():
     '''
@@ -100,7 +102,9 @@ def test_VolumeInfoInit():
     rmtree(Path(OutputDir))
     
 def test_RotationPoint():
-    
+    '''
+    Test whether the rotation points can be extracted from anatomic landmarks
+    '''
     VertDict = {}
     VertDict['Oc-C1'] = [118, 239, 258]
     VertDict['C1-C2'] = [111, 235, 257]
@@ -115,7 +119,46 @@ def test_RotationPoint():
     assert point_of_rotation[1] == VertDict['C2-C3'], 'Error in point_of_rotation[1]'
     assert point_of_rotation[2] == VertDict['Oc-C1'], 'Error in point_of_rotation[2]'
     
+def test_PrepareDcmData():
+    '''
+    Puts the data into a format that can be recognised by platipy
+    '''
+    JsonInfoFile = 'examples/OneAxisRotation.json'
+    
+    JsonTestInfo = VolumeDeformation(InfoFile=JsonInfoFile)    
+    
+    #Oorganise the data and convert dicom volumes to nifti files
+    JsonTestInfo.PrepareDcmData()
 
+    input_dcm_dir = str(JsonTestInfo.nifti_directory) + '/dicom'
+    
+    assert Path(input_dcm_dir).is_dir(),'Dicom directory not created'
+    
+    input_dcm_ct_dir = input_dcm_dir + '/ct'
+    
+    assert Path(input_dcm_ct_dir).is_dir(),'CT directory not created'
+    
+    OriginalFileList = glob.glob(JsonTestInfo.InputDir + '/*')
+    
+    for OriginalFile in OriginalFileList:
+        
+        FileName = os.path.basename(OriginalFile)
+        
+        assert input_dcm_ct_dir + '/' + FileName, '{} file does not exist'.format(FileName)
+    
+    rmtree(JsonTestInfo.OutputDir)
+    #rmtree(str(JsonTestInfo.nifti_directory))
+    rmtree(input_dcm_dir)
+
+def test_DeformationScript():
+    '''
+    Test the whole thing
+    '''
+    JsonInfoFile = 'examples/OneAxisRotation.json'
+    
+    paraFile = 'examples/Elastix_BSpline_OpenCL_RigidPenalty.txt'
+    
+    DeformationScript(JsonInfoFile,RegParamFile=paraFile)
     
     
     

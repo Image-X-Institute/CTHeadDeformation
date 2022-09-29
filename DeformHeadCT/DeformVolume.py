@@ -108,7 +108,7 @@ def DeformationScript(InfoFile,RegParamFile='examples/Elastix_BSpline_OpenCL_Rig
 
     #Delete any temporary files
     if DeleteTempFile:       
-        shutil.rmtree(input_dcm_dir = str(VolInfo.nifti_directory) + '/dicom')
+        shutil.rmtree(str(VolInfo.nifti_directory) + '/dicom')
         shutil.rmtree(VolInfo.nifti_directory)
         if structShiftFlag:
             shutil.rmtree(Path(VolInfo.OutputDir + '/OutputStructures'))

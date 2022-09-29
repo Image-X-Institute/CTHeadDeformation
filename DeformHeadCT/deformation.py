@@ -115,7 +115,10 @@ class HeadDeformation():
                 RotationPt = point_of_rotation[i]
             else:
                 axisLoop = axes
-                RotationPt = point_of_rotation
+                RotationPt = point_of_rotation[0]
+                
+            print(LoopNum)
+            print(RotationPt)
                 
             Mask_deformed_loop, dvf_transform_loop, dvf_field_loop, RotationTForm = generate_field_rotation(
                 self.image_ct,

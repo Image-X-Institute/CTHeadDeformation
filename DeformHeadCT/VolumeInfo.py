@@ -87,6 +87,8 @@ class VolumeDeformation:
             
             if 'axes' in data:
                 self.axes = data['axes']
+            else:
+                self.axes = ''
 
             if 'angles' in data:
                 self.angles = data['angles']
@@ -98,6 +100,7 @@ class VolumeDeformation:
                         
                 self.point_of_rotation = GetPointOfRotation(data)
             else:
+                self.angles = ''
                 if verbose:
                     print('No Head Rotations detected, determined by "angles" variable')     
             
@@ -111,12 +114,14 @@ class VolumeDeformation:
             if 'OutputDirectory' in data:
                 self.OutputDir = data['OutputDirectory']
             else:
+                self.OutputDir = ''
                 if verbose:
                     print('No "OutputDirectory" variable detected in input json file')
   
             if 'TempDirectory' in data:
                 self.nifti_directory = Path(data['TempDirectory']) 
             else:
+                self.nifti_directory = ''
                 if verbose:
                     print('No "TempDirectory" variable detected in input json file')
   
@@ -131,6 +136,7 @@ class VolumeDeformation:
                         print('Variable "Structure_Names" or "Structure_Shift" not provided')
                 
             else:
+                self.StructDir = ''
                 if verbose:
                     print('No "StructureFile" variable detected in Input Json File')
 
@@ -182,86 +188,86 @@ class VolumeDeformation:
         Path.mkdir(Path(self.OutputDir),parents=False, exist_ok=True)       
         
         
-        def PrepareDcmData():
-            
-            """
-            Put the dicom files into the format required by platipy, and convert the dicom files to nifti files. 
-            Nifti files stored in TempDirectory.
-            
-            """
-            
-            #Move input dicom files into one folder            
-            input_dcm_dir = str(self.nifti_directory) + '/dicom'
-            Path.mkdir(Path(input_dcm_dir),parents=False, exist_ok=True)
-            
-            #Create dicom/ct
-            input_dcm_ct_dir = input_dcm_dir + '/ct'
-            Path.mkdir(Path(input_dcm_ct_dir),parents=False, exist_ok=True)
-            MoveDCMFiles(self.InputDir,input_dcm_ct_dir)
-            
-            #If Structure shift is required, move structure information into dicom/rtstruct
-            if StructDir:
-                input_dcm_struct_dir = input_dcm_dir + '/rtstruct'
-                Path.mkdir(Path(input_dcm_struct_dir),parents=False, exist_ok=True)
-                MoveDCMFiles(self.StructDir,input_dcm_struct_dir)
-            
-            #Convert from dicom volumes to nifti volumes. Should auto detect if there is or isn't a struct dir
-            process_dicom_directory(input_dcm_dir,output_directory=self.nifti_directory)
-            
-        def WriteVolumesToFile(image_ct_deformed,structShiftFlag=0,deformed_structures = {}):
-            """
-            Write the deformed ct volume and structures to dicom formats in the directory OutputDir
+    def PrepareDcmData(self):
+        
+        """
+        Put the dicom files into the format required by platipy, and convert the dicom files to nifti files. 
+        Nifti files stored in TempDirectory.
+        
+        """
+        
+        #Move input dicom files into one folder            
+        input_dcm_dir = str(self.nifti_directory) + '/dicom'
+        Path.mkdir(Path(input_dcm_dir),parents=False, exist_ok=True)
+        
+        #Create dicom/ct
+        input_dcm_ct_dir = input_dcm_dir + '/ct'
+        Path.mkdir(Path(input_dcm_ct_dir),parents=False, exist_ok=True)
+        MoveDCMFiles(self.InputDir,input_dcm_ct_dir)
+        
+        #If Structure shift is required, move structure information into dicom/rtstruct
+        if self.StructDir:
+            input_dcm_struct_dir = input_dcm_dir + '/rtstruct'
+            Path.mkdir(Path(input_dcm_struct_dir),parents=False, exist_ok=True)
+            MoveDCMFiles(self.StructDir,input_dcm_struct_dir)
+        
+        #Convert from dicom volumes to nifti volumes. Should auto detect if there is or isn't a struct dir
+        process_dicom_directory(input_dcm_dir,output_directory=self.nifti_directory)
+        
+    def WriteVolumesToFile(self,image_ct_deformed,structShiftFlag=0,deformed_structures = {}):
+        """
+        Write the deformed ct volume and structures to dicom formats in the directory OutputDir
 
-            Parameters
-            ----------
-            image_ct_deformed : SimpleITK.Image
-                The deformed ct image.
-            structShiftFlag : bool or int or whatever, optional
-                If true the structures in deformed_structures flag will be written. If 0 then only the image_ct_deformed will be written
-            deformed_structures : TYPE, optional
-                DESCRIPTION. The default is {}.
+        Parameters
+        ----------
+        image_ct_deformed : SimpleITK.Image
+            The deformed ct image.
+        structShiftFlag : bool or int or whatever, optional
+            If true the structures in deformed_structures flag will be written. If 0 then only the image_ct_deformed will be written
+        deformed_structures : TYPE, optional
+            DESCRIPTION. The default is {}.
 
-            Returns
-            -------
-            None.
+        Returns
+        -------
+        None.
 
-            """
-            #Define CT variables
-            outputDirCT = Path(self.OutputDir + '/ct')    
-            outputDirCT.mkdir(exist_ok=True, parents=True)
-            
-            input_dcm_dir = str(self.nifti_directory) + '/dicom'
-                       
-            #write deformed ct to dcm
-            convert_nifti_to_dicom_series(
-                image=image_ct_deformed,
-                reference_dcm=input_dcm_dir + '/ct',
-                output_directory=str(outputDirCT)
-            )                
+        """
+        #Define CT variables
+        outputDirCT = Path(self.OutputDir + '/ct')    
+        outputDirCT.mkdir(exist_ok=True, parents=True)
+        
+        input_dcm_dir = str(self.nifti_directory) + '/dicom'
                    
-            if structShiftFlag:
-                #Create a temporary directory to write the structures to
-                TempDirStruct = Path(self.OutputDir + '/OutputStructures')
-                TempDirStruct.mkdir(exist_ok=True, parents=True)
-                
-                #write structure to nifti format 
-                for struct in deformed_structures:
-                    sitk.WriteImage(deformed_structures[struct],str(TempDirStruct / str(struct + ".nii.gz")))
-                
-                # rtstruct output dir 
-                output_dir_dcm_STRUCT = Path(self.OutputDir + '/rtstruct')  
-                output_dir_dcm_STRUCT.mkdir(exist_ok=True, parents=True)
+        #write deformed ct to dcm
+        convert_nifti_to_dicom_series(
+            image=image_ct_deformed,
+            reference_dcm=input_dcm_dir + '/ct',
+            output_directory=str(outputDirCT)
+        )                
+               
+        if structShiftFlag:
+            #Create a temporary directory to write the structures to
+            TempDirStruct = Path(self.OutputDir + '/OutputStructures')
+            TempDirStruct.mkdir(exist_ok=True, parents=True)
             
-                # dictionary containing path of nifti files
-                masks = {}
-                for m in os.listdir(TempDirStruct):
-                    name = m.split('.')[0]
-                    mask_path = str(TempDirStruct / m)
-                    masks[name] = mask_path    
+            #write structure to nifti format 
+            for struct in deformed_structures:
+                sitk.WriteImage(deformed_structures[struct],str(TempDirStruct / str(struct + ".nii.gz")))
             
-                #convert nifti files to struct file
-                convert_nifti(
-                    dcm_path = str(outputDirCT / "0.dcm"),
-                    mask_input = masks, 
-                    output_file = str(output_dir_dcm_STRUCT / "struct.dcm")
-                )                   
+            # rtstruct output dir 
+            output_dir_dcm_STRUCT = Path(self.OutputDir + '/rtstruct')  
+            output_dir_dcm_STRUCT.mkdir(exist_ok=True, parents=True)
+        
+            # dictionary containing path of nifti files
+            masks = {}
+            for m in os.listdir(TempDirStruct):
+                name = m.split('.')[0]
+                mask_path = str(TempDirStruct / m)
+                masks[name] = mask_path    
+        
+            #convert nifti files to struct file
+            convert_nifti(
+                dcm_path = str(outputDirCT / "0.dcm"),
+                mask_input = masks, 
+                output_file = str(output_dir_dcm_STRUCT / "struct.dcm")
+            )                   
