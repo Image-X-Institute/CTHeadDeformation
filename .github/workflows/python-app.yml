@@ -32,7 +32,7 @@ jobs:
         pip install platipy
     - name: Install elastix
       run: |
-        wget -P ~/ElastixDownload "https://github.com/SuperElastix/elastix/releases/download/5.0.1/elastix-5.0.1-linux.tar.bz2"
+        wget "https://github.com/SuperElastix/elastix/releases/download/5.0.1/elastix-5.0.1-linux.tar.bz2"
         tar -xvzf ~/ElastixDownload/elastix-5.0.1-linux.tar.bz2 -C elastix
         PATH=$PATH:~/elastix
     - name: Test with pytest & Coverage
