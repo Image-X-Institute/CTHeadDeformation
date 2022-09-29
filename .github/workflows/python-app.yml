@@ -30,6 +30,7 @@ jobs:
         pip install coverage
         pip install -r requirements.txt
         pip install platipy
+        pip install numpy
     - name: Install elastix
       run: |
         wget -P ~/ElastixDownload "https://github.com/SuperElastix/elastix/releases/download/5.0.1/elastix-5.0.1-linux.tar.bz2"
