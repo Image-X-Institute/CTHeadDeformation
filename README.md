@@ -1,6 +1,6 @@
 ## CT Head Deformation
 
-![test](https://github.com/ACRF-Image-X-Institute/CTHeadDeformation/actions/workflows/run_tests.yml/badge.svg)
+![test](https://github.com/ACRF-Image-X-Institute/CTHeadDeformation/actions/workflows/python_app.yml/badge.svg)
 
 **Author:** *Mark Gardner*
 
