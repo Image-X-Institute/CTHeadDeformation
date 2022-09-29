@@ -47,19 +47,19 @@ from DeformHeadCT.DeformVolume import DeformationScript
 '''
 Define the location of the json file
 '''
-InfoFile = 'OneAxisRotation.json'
-elastixParamFile = 'Elastix_BSpline_OpenCL_RigidPenalty.txt'
+InfoFile = 'examples/OneAxisRotation.json'
+elastixParamFile = 'examples/Elastix_BSpline_OpenCL_RigidPenalty.txt'
 
 '''
 Change the template json file variables to input the location of the dicom files
 '''
-NewVars = {}
+#NewVars = {}
 
-NewVars['name'] = 'PAT_01'
-NewVars['InputDirectory'] = "PAT_01/dicomData"
-NewVars['OutputDirectory'] = 'OutputDir'
+#NewVars['name'] = ''
+#NewVars['InputDirectory'] = ""
+#NewVars['OutputDirectory'] = ''
 
-ChangeJsonFile(InfoFile,NewVars)
+#ChangeJsonFile(InfoFile,NewVars)
 
 '''
 Run the function

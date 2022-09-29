@@ -95,7 +95,7 @@ def get_head_mask(body_mask,list_coordinates, reference_image):
     y_val = []
     z_val = []
     for coordinate in list_coordinates:
-        print(coordinate)
+        #print(coordinate)
         y_val.append(coordinate[1])
         z_val.append(coordinate[0])
     y_val = np.array(y_val)
