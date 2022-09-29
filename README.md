@@ -17,11 +17,17 @@ Further information can be found in the repo wiki (https://github.sydney.edu.au/
 
 ## Setup/Build/Install
 
+The module can be installed using pip:
+
+```
+pip install CTHeadDeformation
+```
+
+This code uses the platipy repo (https://github.com/pyplati/platipy). If the platipy module is not automatically installed when installing the CTHeadDeformation code, the platipy library can be installed separately using the installation instructions (https://pyplati.github.io/platipy/getting_started.html). 
+
 Install elastix (https://elastix.lumc.nl/index.php)
 
 Add the elastix.exe program pathfile to the system path.
-
-This code uses the platipy repo (https://github.com/pyplati/platipy). If the platipy module is not automatically installed when installing the CTHeadDeformation code, the platipy library can be installed separately using the installation instructions (https://pyplati.github.io/platipy/getting_started.html). 
 
 ## Usage
 
