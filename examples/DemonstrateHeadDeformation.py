@@ -55,9 +55,9 @@ Change the template json file variables to input the location of the dicom files
 '''
 #NewVars = {}
 
-#NewVars['name'] = 'CHIRP_01'
-#NewVars['InputDirectory'] = "Z://2RESEARCH/1_ClinicalData/CHIRP/Blacktown/Patient Files/PAT01/Planning Data and CBCTs/2/10/CT/20220201"
-#NewVars['OutputDirectory'] = 'dicom'
+#NewVars['name'] = ''
+#NewVars['InputDirectory'] = ""
+#NewVars['OutputDirectory'] = ''
 
 #ChangeJsonFile(InfoFile,NewVars)
 
