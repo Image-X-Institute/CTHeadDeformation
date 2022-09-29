@@ -22,6 +22,7 @@ this_file_loc = Path(__file__)
 sys.path.insert(0, str(this_file_loc.parent.parent))
 # note: insert(0) means that the path is above is the FIRST place that python will look for imports
 # sys.path.append means that the path above is the LAST place
+import platipy
 from DeformHeadCT.DeformVolume import DeformationScript
 from DeformHeadCT.VolumeInfo import VolumeDeformation
 from DeformHeadCT.DataPreparation import (
