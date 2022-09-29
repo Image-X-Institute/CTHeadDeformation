@@ -1,5 +1,7 @@
 ## CT Head Deformation
 
+![test](https://github.com/ACRF-Image-X-Institute/CTHeadDeformation/actions/workflows/run_tests.yml/badge.svg)
+
 **Author:** *Mark Gardner*
 
 The CTHeadDeformation module is an open-sourced library for taking CT and cone-beam CT (CBCT) scans and deforming these scans in a way that simulates realistic head motion. Deforming CT and CBCT scans can be used for:
