@@ -20,8 +20,7 @@ setup(
     download_url = '',
     keywords = ['CT', 'deformation', 'head and neck'],
     install_requires=['SimpleITK', 
-                      'platipy',
-                      'numpy'],
+                      'platipy'],
     long_description_content_type = 'text/markdown',
     long_description=open('README.md').read(),
 )
