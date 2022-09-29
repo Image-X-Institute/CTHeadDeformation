@@ -38,4 +38,5 @@ jobs:
         PATH=$PATH:~/elastix
     - name: Test with pytest & Coverage
       run: |
-        coverage run -m pytest
+        pytest --cov-report xml --cov=CTHeadDeformation/
+        #coverage run -m pytest
