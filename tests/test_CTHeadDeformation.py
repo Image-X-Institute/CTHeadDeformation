@@ -5,6 +5,7 @@ Created on Mon Sep 19 10:30:33 2022
 @author: mgar5380
 """
 import os
+import subprocess
 from pathlib import Path
 import sys
 import numpy as np
@@ -149,6 +150,12 @@ def test_PrepareDcmData():
     rmtree(JsonTestInfo.OutputDir)
     #rmtree(str(JsonTestInfo.nifti_directory))
     rmtree(input_dcm_dir)
+
+def test_ElastixInstalled():
+    
+    command_run = subprocess.call('elastix -h')
+    
+    assert command_run == 0, 'Error with installation of elastix'
 
 def test_DeformationScript():
     '''
