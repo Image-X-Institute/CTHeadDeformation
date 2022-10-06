@@ -153,9 +153,13 @@ def test_PrepareDcmData():
 
 def test_ElastixInstalled():
     
-    command_run = subprocess.call('elastix -h')
+    #command_run = subprocess.call('elastix -h')
+    command_run = subprocess.run('elastix -h')
     
-    assert command_run == 0, 'Error with installation of elastix'
+    command_run.check_returncode()
+    
+    #assert command_run == 0, 'Error with installation of elastix'
+    #assert command_run.exit_code == 0, 'Error with installation of elastix'
 """
 def test_DeformationScript():
     '''
