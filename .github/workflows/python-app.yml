@@ -35,7 +35,7 @@ jobs:
       run: |
         wget -P ~/ElastixDownload "https://github.com/SuperElastix/elastix/releases/download/5.0.1/elastix-5.0.1-linux.tar.bz2"
         tar -xvf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2
-        PATH=$PATH:~/elastix
+        PATH=$PATH:~/elastix-5.0.1-linux/bin/elastix
     - name: Test with pytest & Coverage
       run: |
         #pytest --cov-report xml --cov=CTHeadDeformation/
