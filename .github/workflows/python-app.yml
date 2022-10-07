@@ -37,7 +37,7 @@ jobs:
         bzip2 -d /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2
         #tar -xvf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2
         #ls /home/runner
-        ls home/runner/ElastixDownload
+        ls /home/runner/ElastixDownload
         PATH=$PATH:~/elastix-5.0.1-linux/bin/elastix
         whereis elastix.exe
         which elastix.exe                
