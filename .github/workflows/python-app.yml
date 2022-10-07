@@ -34,7 +34,8 @@ jobs:
     - name: Install elastix
       run: |
         wget -P ~/ElastixDownload "https://github.com/SuperElastix/elastix/releases/download/5.0.1/elastix-5.0.1-linux.tar.bz2"
-        tar -xvf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2
+        tar -xvf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2 /home/runner/elastix-5.0.1-linux
+        ls home/runner
         ls ~/ElastixDownload
         PATH=$PATH:~/elastix-5.0.1-linux/bin/elastix
         ls ~/ElastixDownload/elastix-5.0.1-linux
