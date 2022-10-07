@@ -38,8 +38,8 @@ jobs:
         ls /home/runner
         ls ~/ElastixDownload
         PATH=$PATH:~/elastix-5.0.1-linux/bin/elastix
-        ls ~/ElastixDownload/elastix-5.0.1-linux
-        ls ~/ElastixDownload/elastix-5.0.1-linux/bin/elastix
+        ls ~/elastix-5.0.1-linux/bin/elastix
+        #ls ~/ElastixDownload/elastix-5.0.1-linux/bin/elastix
         whereis elastix.exe
         which elastix.exe        
     - name: Test with pytest & Coverage
