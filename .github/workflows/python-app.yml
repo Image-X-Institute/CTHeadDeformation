@@ -38,7 +38,7 @@ jobs:
         tar -xvjf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2
         #ls /home/runner
         ls /home/runner/ElastixDownload
-        PATH=$PATH:~/elastix-5.0.1-linux/bin/elastix
+        PATH=$PATH:~/ElastixDownload/elastix-5.0.1-linux/bin/elastix
         echo "$PATH"
         whereis elastix.exe
         which elastix.exe                
