@@ -52,6 +52,7 @@ jobs:
     - name: Test with pytest & Coverage
       run: |
         ls /home/runner/ElastixDownload
+        mkdir /home/runner/elastix
         tar -xvjf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2 -C /home/runner/elastix
         PATH=$PATH:~/elastix/bin/elastix
         echo "$PATH"
