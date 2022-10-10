@@ -39,9 +39,9 @@ jobs:
         #ls /home/runner
         #ls /home/runner/ElastixDownload
         PATH=$PATH:~/ElastixDownload/elastix-5.0.1-linux/bin
-        echo "$PATH"
-        ls /home/runner
-        find /home -name elastix -type f -print
+        #echo "$PATH"
+        #ls /home/runner
+        #find /home -name elastix -type f -print
         #ls /home/runner/ElastixDownload/elastix-5.0.1-linux/
         #whereis elastix.exe
         #which elastix.exe                
