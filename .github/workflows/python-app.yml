@@ -51,7 +51,7 @@ jobs:
 
     - name: Test with pytest & Coverage
       run: |
-        ls /home/runner
+        ls /home/runner/ElastixDownload
         PATH=$PATH:~/ElastixDownload/elastix-5.0.1-linux/bin
         echo "$PATH"
         #pytest --cov-report xml --cov=CTHeadDeformation/
