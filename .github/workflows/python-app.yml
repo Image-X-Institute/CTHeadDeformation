@@ -55,6 +55,7 @@ jobs:
         tar -xvjf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2
         PATH=$PATH:~/ElastixDownload/elastix-5.0.1-linux/bin
         echo "$PATH"
+        elastix -h
         #pytest --cov-report xml --cov=CTHeadDeformation/
         coverage run -m pytest
     - name: Upload coverage to Codecov
