@@ -52,10 +52,11 @@ jobs:
     - name: Test with pytest & Coverage
       run: |        
         mkdir /home/runner/elastix
-        tar -xvjf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2 -C /home/runner/elastix
-        ls /home/runner/elastix/elastix-5.0.1-linux/bin/elastix
+        tar -xvjf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2 -C /home/runner/elastix        
         PATH=$PATH:~/elastix/elastix-5.0.1-linux/bin/elastix
         echo "$PATH"
+        echo "$LD_LIBRARY_PATH"
+        ls /home/runner/elastix/elastix-5.0.1-linux/bin/elastix
         find /home/runner -name elastix -type f -print
         elastix -h
         #pytest --cov-report xml --cov=CTHeadDeformation/
