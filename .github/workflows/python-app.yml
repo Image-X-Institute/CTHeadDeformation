@@ -39,7 +39,7 @@ jobs:
         #ls /home/runner
         #ls /home/runner/ElastixDownload
         #PATH=$PATH:~/ElastixDownload/elastix-5.0.1-linux/bin
-        PATH=$PATH:/home/runner/work/CTHeadDeformation/CTHeadDeformation/elastix-5.0.1-linux/bin
+        PATH=$PATH:/home/runner/work/CTHeadDeformation/CTHeadDeformation/elastix-5.0.1-linux/bin/elastix
         echo "$PATH"
         #ls /home/runner
         find /home/runner -name elastix -type f -print
@@ -51,6 +51,7 @@ jobs:
 
     - name: Test with pytest & Coverage
       run: |
+        echo "$PATH"
         #pytest --cov-report xml --cov=CTHeadDeformation/
         coverage run -m pytest
     - name: Upload coverage to Codecov
