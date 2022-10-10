@@ -57,8 +57,9 @@ jobs:
         echo "$PATH"
         echo "$LD_LIBRARY_PATH"
         ls /home/runner/elastix/elastix-5.0.1-linux/bin/elastix
-        find /home/runner -name elastix -type f -print
-        /home/runner/elastix/elastix-5.0.1-linux/bin/elastix.exe -h
+        find /home/runner -name elastix.exe -type f -print
+        elastix -h
+        #/home/runner/elastix/elastix-5.0.1-linux/bin/elastix.exe -h
         #pytest --cov-report xml --cov=CTHeadDeformation/
         coverage run -m pytest
     - name: Upload coverage to Codecov
