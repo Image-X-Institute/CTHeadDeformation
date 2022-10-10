@@ -35,14 +35,14 @@ jobs:
       run: |
         wget -P ~/ElastixDownload "https://github.com/SuperElastix/elastix/releases/download/5.0.1/elastix-5.0.1-linux.tar.bz2"
         #bzip2 -d /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2
-        tar -xvjf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2
+        #tar -xvjf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2
         #ls /home/runner
         #ls /home/runner/ElastixDownload
         #PATH=$PATH:~/ElastixDownload/elastix-5.0.1-linux/bin
-        PATH=$PATH:/home/runner/work/CTHeadDeformation/CTHeadDeformation/elastix-5.0.1-linux/bin/elastix
-        echo "$PATH"
+        #PATH=$PATH:/home/runner/work/CTHeadDeformation/CTHeadDeformation/elastix-5.0.1-linux/bin/elastix
+        #echo "$PATH"
         #ls /home/runner
-        find /home/runner -name elastix -type f -print
+        #find /home/runner -name elastix -type f -print
         #ls /home/runner/ElastixDownload/elastix-5.0.1-linux/
         #whereis elastix.exe
         #which elastix.exe                
@@ -56,6 +56,7 @@ jobs:
         ls /home/runner/elastix/elastix-5.0.1-linux/bin/elastix
         PATH=$PATH:~/elastix/elastix-5.0.1-linux/bin/elastix
         echo "$PATH"
+        find /home/runner -name elastix -type f -print
         elastix -h
         #pytest --cov-report xml --cov=CTHeadDeformation/
         coverage run -m pytest
