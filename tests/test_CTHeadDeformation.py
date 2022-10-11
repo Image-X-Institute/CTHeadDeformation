@@ -150,7 +150,19 @@ def test_PrepareDcmData():
     rmtree(JsonTestInfo.OutputDir)
     #rmtree(str(JsonTestInfo.nifti_directory))
     rmtree(input_dcm_dir)
-
+    
+def test_ElastixInstalled():
+    
+    home_dir = Path(os.path.expanduser('~'))  # may have to update for github system
+    elastix_dir = home_dir / 'ElastixDownload' / 'elastix-5.0.1-linux' / 'bin'
+    elastix_lib_dir = home_dir / 'ElastixDownload' / 'elastix-5.0.1-linux' / 'lib'
+    my_env = os.environ.copy()
+    my_env["PATH"] = my_env["PATH"] + ':' + str(elastix_dir)
+    my_env["LD_LIBRARY_PATH"] = my_env["LD_LIBRARY_PATH"] + ':' + str(elastix_lib_dir)
+    bashCommand = "/home/runner/ElastixDownload/elastix-5.0.1-linux/bin/elastix -h"
+    subprocess.Popen(bashCommand.split(), env=my_env)
+    
+"""
 def test_ElastixInstalled():
     
     #command_run = subprocess.call('elastix -h')
@@ -160,6 +172,7 @@ def test_ElastixInstalled():
     
     #assert command_run == 0, 'Error with installation of elastix'
     #assert command_run.exit_code == 0, 'Error with installation of elastix'
+"""
 """
 def test_DeformationScript():
     '''
