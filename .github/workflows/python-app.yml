@@ -54,7 +54,7 @@ jobs:
         mkdir /home/runner/elastix
         tar -xvjf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2 -C /home/runner/elastix        
         PATH=$PATH:~/elastix/elastix-5.0.1-linux/bin
-        LD LIBRARY PATH=$LD LIBRARY PATH:~/elastix/elastix-5.0.1-linux/lib
+        LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/elastix/elastix-5.0.1-linux/lib
         echo "$PATH"
         echo "$LD_LIBRARY_PATH"
         #ls /home/runner/elastix/elastix-5.0.1-linux/bin/elastix
