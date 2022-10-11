@@ -159,8 +159,9 @@ def test_ElastixInstalled():
     my_env = os.environ.copy()
     my_env["PATH"] = my_env["PATH"] + ':' + str(elastix_dir)
     my_env["LD_LIBRARY_PATH"] = my_env["LD_LIBRARY_PATH"] + ':' + str(elastix_lib_dir)
-    bashCommand = "/home/runner/ElastixDownload/elastix-5.0.1-linux/bin/elastix -h"
-    subprocess.Popen(bashCommand.split(), env=my_env)
+    #bashCommand = "/home/runner/ElastixDownload/elastix-5.0.1-linux/bin/elastix -h"
+    bashCommand = "elastix -h"
+    assert subprocess.Popen(bashCommand.split(), env=my_env) == 0, 'Error with installation of elastix'
     
 """
 def test_ElastixInstalled():
