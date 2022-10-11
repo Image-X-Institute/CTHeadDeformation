@@ -54,10 +54,11 @@ jobs:
         mkdir /home/runner/elastix
         tar -xvjf /home/runner/ElastixDownload/elastix-5.0.1-linux.tar.bz2 -C /home/runner/elastix        
         PATH=$PATH:~/elastix/elastix-5.0.1-linux/bin
+        LD LIBRARY PATH=$LD LIBRARY PATH:~/elastix/elastix-5.0.1-linux/lib
         echo "$PATH"
         echo "$LD_LIBRARY_PATH"
-        ls /home/runner/elastix/elastix-5.0.1-linux/bin/elastix
-        find /home/runner -name elastix.exe -type f -print
+        #ls /home/runner/elastix/elastix-5.0.1-linux/bin/elastix
+        #find /home/runner -name elastix.exe -type f -print
         elastix -h
         #/home/runner/elastix/elastix-5.0.1-linux/bin/elastix.exe -h
         #pytest --cov-report xml --cov=CTHeadDeformation/
