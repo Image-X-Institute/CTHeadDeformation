@@ -146,6 +146,10 @@ def test_PrepareDcmData():
         FileName = os.path.basename(OriginalFile)
         
         assert input_dcm_ct_dir + '/' + FileName, '{} file does not exist'.format(FileName)
+
+    ct_path = next(iter(JsonTestInfo.nifti_directory.glob(f"{JsonTestInfo.patientunderscore}/IMAGES/*CT*.nii.gz")))
+    print(ct_path)
+    assert ct_path.is_file() == 0, "CT Path not created"
     
     rmtree(JsonTestInfo.OutputDir)
     #rmtree(str(JsonTestInfo.nifti_directory))
