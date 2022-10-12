@@ -61,7 +61,7 @@ jobs:
         #find /home/runner -name elastix.exe -type f -print
         #elastix -h
         #/home/runner/elastix/elastix-5.0.1-linux/bin/elastix.exe -h
-        #pytest --cov-report xml --cov=CTHeadDeformation/
-        coverage run -m pytest
+        pytest --cov-report xml --cov=CTHeadDeformation/
+        #coverage run -m pytest
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
