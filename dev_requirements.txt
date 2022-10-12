@@ -4,6 +4,7 @@ matplotlib
 numpy
 sphinx
 pytest
+pytest-cov
 coverage
 interrogate
 coverage-badge
