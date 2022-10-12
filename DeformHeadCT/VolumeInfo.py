@@ -212,7 +212,7 @@ class VolumeDeformation:
             MoveDCMFiles(self.StructDir,input_dcm_struct_dir)
         
         #Convert from dicom volumes to nifti volumes. Should auto detect if there is or isn't a struct dir
-        process_dicom_directory(input_dcm_dir,output_directory=str(self.nifti_directory))
+        process_dicom_directory(input_dcm_dir,output_directory=self.nifti_directory)
         
     def WriteVolumesToFile(self,image_ct_deformed,structShiftFlag=0,deformed_structures = {}):
         """
