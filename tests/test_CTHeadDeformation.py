@@ -148,6 +148,8 @@ def test_PrepareDcmData():
         assert Path(input_dcm_ct_dir + '/' + str(FileName)).is_file(), '{} file does not exist'.format(input_dcm_ct_dir + '/' + str(FileName))
 
     print(str(JsonTestInfo.nifti_directory) + '/' + f"{JsonTestInfo.patientunderscore}/IMAGES")
+    assert Path(JsonTestInfo.nifti_directory).is_dir(),"Nifi Directory Not created"
+    assert Path(str(JsonTestInfo.nifti_directory) + '/' + f"{JsonTestInfo.patientunderscore}").is_dir(),"PatientUnderscorePath Not created"
     assert Path(str(JsonTestInfo.nifti_directory) + '/' + f"{JsonTestInfo.patientunderscore}/IMAGES").is_dir(),"CT Path Not created"
     ct_path = next(iter(JsonTestInfo.nifti_directory.glob(f"{JsonTestInfo.patientunderscore}/IMAGES/*CT*.nii.gz")))
     print(ct_path)
