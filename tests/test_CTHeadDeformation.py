@@ -176,16 +176,24 @@ def test_ElastixInstalled():
     #assert command_run == 0, 'Error with installation of elastix'
     #assert command_run.exit_code == 0, 'Error with installation of elastix'
 """
-"""
+
 def test_DeformationScript():
     '''
     Test the whole thing
     '''
+    
+    home_dir = Path(os.path.expanduser('~'))  # may have to update for github system
+    elastix_dir = home_dir / 'ElastixDownload' / 'elastix-5.0.1-linux' / 'bin'
+    elastix_lib_dir = home_dir / 'ElastixDownload' / 'elastix-5.0.1-linux' / 'lib'
+    my_env = os.environ.copy()
+    my_env["PATH"] = my_env["PATH"] + ':' + str(elastix_dir)
+    my_env["LD_LIBRARY_PATH"] = my_env["LD_LIBRARY_PATH"] + ':' + str(elastix_lib_dir)    
+    
     JsonInfoFile = 'examples/OneAxisRotation.json'
     
     paraFile = 'examples/Elastix_BSpline_OpenCL_RigidPenalty.txt'
     
     DeformationScript(JsonInfoFile,RegParamFile=paraFile)
-"""    
+
     
     
