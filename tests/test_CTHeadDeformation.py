@@ -12,6 +12,7 @@ import numpy as np
 from shutil import rmtree
 import glob
 import json
+from platform import system
 
 '''
 For testing/ example purposes it's safest to manually append the path variable to ensure our 
@@ -36,7 +37,7 @@ def test_VolumeInfoInit():
     '''
     
     patient_id = 'zz_Elshin'
-    patientunderscore = 'zz_Elshin'
+    patientunderscore = 'ZZ_ELSHIN'
     
     axes = [-1,0,0]
     angles = [2.5]
@@ -168,7 +169,8 @@ def test_ElastixInstalled():
     elastix_lib_dir = home_dir / 'ElastixDownload' / 'elastix-5.0.1-linux' / 'lib'
     my_env = os.environ.copy()
     my_env["PATH"] = my_env["PATH"] + ':' + str(elastix_dir)
-    my_env["LD_LIBRARY_PATH"] = my_env["LD_LIBRARY_PATH"] + ':' + str(elastix_lib_dir)
+    if not system() == 'Windows':
+        my_env["LD_LIBRARY_PATH"] = my_env["LD_LIBRARY_PATH"] + ':' + str(elastix_lib_dir)
     #bashCommand = "/home/runner/ElastixDownload/elastix-5.0.1-linux/bin/elastix -h"
     bashCommand = "elastix -h"
     subprocess.Popen(bashCommand.split(), env=my_env)
@@ -197,7 +199,8 @@ def test_DeformationScript():
     elastix_lib_dir = home_dir / 'ElastixDownload' / 'elastix-5.0.1-linux' / 'lib'
     my_env = os.environ.copy()
     my_env["PATH"] = my_env["PATH"] + ':' + str(elastix_dir)
-    my_env["LD_LIBRARY_PATH"] = my_env["LD_LIBRARY_PATH"] + ':' + str(elastix_lib_dir)    
+    if not system() == 'Windows':
+        my_env["LD_LIBRARY_PATH"] = my_env["LD_LIBRARY_PATH"] + ':' + str(elastix_lib_dir)    
     
     JsonInfoFile = 'examples/OneAxisRotation.json'
     

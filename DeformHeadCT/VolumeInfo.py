@@ -83,7 +83,7 @@ class VolumeDeformation:
             
             self.patient_id = data['name']
             
-            self.patientunderscore = self.patient_id.replace('-','_')
+            self.patientunderscore = self.patient_id.replace('-','_').upper()
             
             if 'axes' in data:
                 self.axes = data['axes']
