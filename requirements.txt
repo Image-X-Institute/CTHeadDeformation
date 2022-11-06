@@ -1,7 +1,7 @@
 # add packages here that are needed to develop your code
 # feel free to remove ones you don't use
 matplotlib
-numpy
+numpy==1.22.4
 argparse
 SimpleITK
 scipy
