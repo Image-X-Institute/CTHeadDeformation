@@ -54,9 +54,9 @@ class HeadDeformation():
         self.image_ct = sitk.ReadImage(str(ct_path))
         
         if structShiftFlag:
-            self.structure_paths = nifti_directory.glob(f"{patientunderscore}/STRUCTURES/*.nii.gz")
+            self.structure_paths = list(nifti_directory.glob(f"{patientunderscore}/STRUCTURES/*.nii.gz"))
         else:
-            self.structure_paths = ''
+            self.structure_paths = list('')
     
         #Define dvf_field
         self.dvf_field = sitk.Image(self.image_ct.GetSize(), sitk.sitkVectorFloat64);
