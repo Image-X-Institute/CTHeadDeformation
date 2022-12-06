@@ -1,6 +1,6 @@
 {
 	"name": "zz_Elshin", 
-	"InputDirectory": "examples/PhantomDicomData", 
+	"InputDirectory": "examples/PhantomDicomData/ct", 
 	"TempDirectory":"examples/TestingTempDir",
 	"OutputDirectory":"examples/TestingGitHubThing",
 	"axes": [-1, 0, 0], 

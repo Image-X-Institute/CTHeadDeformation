@@ -49,8 +49,8 @@ def test_VolumeInfoInit():
     VertDict['C1-C2'] = [111, 235, 257]
     VertDict['C2-C3'] = [101, 230, 256]
     
-    InputDir = 'examples/PhantomDicomData'
-    StructDir = 'test'
+    InputDir = 'examples/PhantomDicomData/ct'
+    StructDir = 'examples/PhantomDicomData/struct'
     OutputDir = 'examples/TestingGitHubThing'
     nifti_directory = 'examples/TestingTempDir'
     Structure_Names = 'test'
