@@ -1,3 +1,2 @@
 SimpleITK
 platipy
-numpy
