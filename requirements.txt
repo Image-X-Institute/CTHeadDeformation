@@ -1,9 +1,10 @@
 # add packages here that are needed to develop your code
 # feel free to remove ones you don't use
+platipy
 matplotlib
-numpy
+#numpy
 argparse
-SimpleITK
+#SimpleITK
 scipy
 platipy
 #numpy==1.22.4
